@@ -1,0 +1,29 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+
+    <%= render 'users/info', user: @user, book: @book %>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <!--繰り返し-->
+        <% @users.each do |user| %>
+        <tbody>
+          <tr>
+            <td><%= attachment_image_tag user, :profile_image, :fill, 30, 30, fallback: "no_image.png", size: '30x30' %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user) %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
