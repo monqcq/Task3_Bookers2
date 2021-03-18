@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You have updated user successfully."
       redirect_to user_path(@user)
     else
-      
+      render action: :edit
     end
   end
 
