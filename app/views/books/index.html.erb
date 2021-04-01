@@ -1,8 +1,8 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    
+
     <%= render 'users/info', user: @user, book: @book %>
-    
+
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover table-inverse">
@@ -21,6 +21,8 @@
             <td><%= link_to attachment_image_tag(book.user, :profile_image, :fill, 30, 30, fallback: "no_image.png", size: '30x30'), user_path(book.user.id) %></td>
             <td><%= link_to book.title, book_path(book.id) %></td>
             <td><%= book.body %></td>
+            <%= render 'favorite', book: book %>
+            <td></td>
           </tr>
         </tbody>
         <% end %>
