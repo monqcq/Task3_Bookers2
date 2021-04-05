@@ -8,7 +8,7 @@
         </ul>
       </div>
     <% end %>
-    
+
     <div class="col-md-3">
       <h2>User info</h2>
       <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.png", size: '60x60' %>
@@ -24,11 +24,19 @@
           </tr>
           <tr>
             <th>follows</th>
-            <th><%= user.followings.count %></th>
+            <th>
+              <%= link_to followings_user_path(user.id) do %>
+              <%= user.followings.count %>
+              <% end %>
+            </th>
           </tr>
           <tr>
             <th>followers</th>
-            <th><%= user.followers.count %></th>
+            <th>
+              <%= link_to followers_user_path(user.id) do %>
+              <%= user.followers.count %>
+              <% end %>
+            </th>
           </tr>
         </tbody>
       </table>
