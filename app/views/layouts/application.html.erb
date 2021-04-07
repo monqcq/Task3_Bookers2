@@ -70,6 +70,17 @@
         </div>
       </nav>
     </header>
+    
+    <div class="container">
+      <div class="row justify-content-center">
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword %>
+          <%= f.select :range, options_for_select([["Book"], ["User"]]) %>
+          <%= f.select :way, options_for_select([["完全一致","perfect_match"],["部分一致","partial_match"],["前方一致","prefix_match"],["後方一致","backward_match"]]) %>
+          <%= f.submit '検索' %>
+        <% end %>
+      </div>
+    </div>
 
     <p><%= render 'layouts/notifications' %></p>
 

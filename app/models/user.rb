@@ -29,6 +29,18 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
   
+  def self.search(ways,keyword)
+    if ways == "perfect_match"
+      where(["name like?", "#{keyword}"])
+    elsif ways == "partial_match"
+      where(["name like?", "%#{keyword}%"])
+    elsif ways == "prefix_match"
+      where(["name like?", "#{keyword}%"])
+    else 
+      where(["name like?", "%#{keyword}"])
+    end
+  end
+  
   attachment :profile_image
 
   validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
