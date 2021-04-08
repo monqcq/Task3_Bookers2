@@ -1,1 +1,1 @@
-@book = Book.find(params[:book_id])
+$(".comments").html("<%= j(render "book_comments/comments", bookDetail: @book) %>");
