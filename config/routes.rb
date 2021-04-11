@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+  }
+
   root 'homes#top'
   get 'home/about', to: 'homes#about'
   resources :users, only: [:index, :show, :edit, :update] do
@@ -18,4 +21,5 @@ Rails.application.routes.draw do
 
   get '/search', to: 'searches#search'
 
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
