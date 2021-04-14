@@ -7,5 +7,5 @@
     user_name: 'takuyaaaan23@gmail.com',
     password: 'njnvtzfwwvihgqus',
     authentication: 'plain',
-    enable_starttls_auto: 
+    enable_starttls_auto: true
   }
